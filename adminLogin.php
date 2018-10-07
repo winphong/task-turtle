@@ -9,15 +9,15 @@
 
 	if (isset($_POST['adminLogin'])) {
 
-		$adminid = $_POST['adminUsername'];
+		$admin_name = $_POST['adminUsername'];
 		$password = $_POST['adminPassword'];
 
-		$userLogin = pg_query("SELECT adminid FROM admin WHERE adminid='$adminid' AND password='$password'");
+		$userLogin = pg_query("SELECT admin_name FROM admin WHERE admin_name='$adminid' AND password='$password'");
 
 		if ($userLogin) {
 
 			echo 'Redirecting to homepage';
-			header("refresh:3; url = homepage.html");
+			//header("refresh:3; url = homepage.html");
 
 		} else {
 

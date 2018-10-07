@@ -12,12 +12,12 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		$userLogin = pg_query("SELECT userid FROM userTable WHERE userid='$username' AND password='$password'");
+		$userLogin = pg_query("SELECT user_name FROM userTable WHERE user_name='$username' AND password='$password'");
 
 		if ($userLogin) {
 
 			echo 'Succesful';
-			header("refresh: 1; url = loggedInHomepage.php");
+			header("refresh: 1; url = loggedInHomepage.html");
 
 		} else {
 
