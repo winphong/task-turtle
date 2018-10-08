@@ -2,12 +2,12 @@ CREATE TABLE userTable (
    user_name VARCHAR(32) PRIMARY KEY,
    password VARCHAR(32) NOT NULL,
    display_name VARCHAR(128) NOT NULL,
-   user_profile VARCHAR(1024) NOT NULL DEFAULT ‘No biography provided’);
+   user_profile VARCHAR(1024) NOT NULL DEFAULT 'No biography provided');
 
 CREATE TABLE task (
    taskid SERIAL PRIMARY KEY,
    title VARCHAR(64) NOT NULL,
-   description VARCHAR(1024) NOT NULL DEFAULT ‘No description provided’,
+   description VARCHAR(1024) NOT NULL DEFAULT 'No description provided',
    task_date DATE NOT NULL,
    start_time TIME NOT NULL,
    end_time TIME NOT NULL,
