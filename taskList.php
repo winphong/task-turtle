@@ -12,7 +12,7 @@
 
 	$retrieveTask = pg_query("SELECT title, description, task_date, creator FROM task ORDER BY post_date DESC");
 
-	while ( $arr = pg_fetch_array( $retrieveTask, NULL, PGSQL_ASSOC ) ) {
+	/* while ( $arr = pg_fetch_array( $retrieveTask, NULL, PGSQL_ASSOC ) ) {
 
 			$y = $arr['title'];
 
@@ -20,7 +20,16 @@
 
             //session_start();
 
-            //$_SESSION['taskName'] = $arr['title'];
+            //$_SESSION['taskName'] = $arr['title']; */
+
+
+	$retrieveTask = pg_query("SELECT taskid, title, description, task_date, creator FROM task ORDER BY post_date DESC");
+
+	while ( $arr = pg_fetch_array( $retrieveTask, NULL, PGSQL_ASSOC ) ) {
+
+		$taskid = $arr['taskid'];
+
+        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$arr['title']."</br>"."Description: ".$arr['description']."</br>"."Date: ".$arr['task_date']."</br>"."Creator: ".$arr['creator'].'<form action="taskPage.php" method="POST"><input type="hidden" name="taskid" value='.$taskid.'><input type="submit" value="Go to task"></form></div>';
 
     }
 ?>
