@@ -1,9 +1,11 @@
 <?php
 
-	$con = pg_connect("host=localhost dbname=project user=postgres password=root port=5432");
+	require 'dbfunction.php';
+	require 'dbqueryfunction.php';
+
+    $con = getDbConnect();
 
 	if (!$con) {
-
 		echo 'Not connected to server';
 	}
 
@@ -12,16 +14,17 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		$userLogin = pg_query("SELECT user_name FROM userTable WHERE user_name='$username' AND password='$password'");
+        $queryStr = "SELECT user_name FROM userTable WHERE user_name='$username' AND password='$password'";
+		$userLogin = dbQuery($con, $queryStr);
 
 		if ($userLogin) {
 
-			echo 'Succesful';
+			echo 'Successful';
 			header("refresh: 1; url = loggedInHomepage.html");
 
 		} else {
 
-			echo 'Log in unsuccesful';
+			echo 'Log in unsuccessful';
 			header("refresh:3; url = loginPage.html");
 		}
 	}

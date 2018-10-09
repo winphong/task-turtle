@@ -1,6 +1,9 @@
 <?php
 	
-	$con = pg_connect("host=localhost dbname=project user=postgres password=root port=5432");
+	require 'dbfunction.php';
+	require 'dbqueryfunction.php';
+
+	$con = getDbConnect();
 
 	if (!$con) {
 
@@ -14,19 +17,15 @@
 		$name = $_POST['name'];
 		$userProfile = $_POST['userProfile'];
 
-		$userSignUp = pg_query("INSERT INTO userTable VALUES ('$username', '$password', '$name', '$userProfile')");
-
-		echo $userSignUp;
+        $queryStr = "INSERT INTO userTable VALUES ('$username', '$password', '$name', '$userProfile')";
+		$userSignUp = dbQuery($con, $queryStr);
 
 		if ($userSignUp) {
-
-			//echo "Account created successfully";
-			//header("refresh:3; url = homepage.html");
-
+			echo "Account created successfully";
+			header("refresh:3; url = homepage.php");
 		} else {
-
-			//echo 'Account not created';
-			//header("refresh:3; url = signupPage.html");
+			echo 'Account not created';
+			header("refresh:3; url = signupPage.html");
 		}
 	}
 ?>
