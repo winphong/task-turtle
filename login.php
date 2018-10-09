@@ -18,7 +18,7 @@
 		$userLogin = dbQuery($con, $queryStr);
 		$result = dbFetchArray($userLogin);
 
-		if (isset($result)) {
+		if ($result) {
 
 			echo 'Successful';
 			header("refresh:0.3; url = loggedInHomepage.html");
