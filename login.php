@@ -21,7 +21,7 @@
 		if (isset($result)) {
 
 			echo 'Successful';
-			header("refresh: 1; url = loggedInHomepage.html");
+			header("refresh:0.3; url = loggedInHomepage.html");
 
 		} else {
 
