@@ -1,7 +1,7 @@
 <?php
 
     function dbQuery($con, $queryStr) {
-        $dbType = "mysql";
+        $dbType = "postgres";
         if ($dbType == "postgres") {
             // get a postgres query
             return pg_query($con, $queryStr);
@@ -12,7 +12,7 @@
     }
 
     function dbFetchArray($queryResult) {
-        $dbType = "mysql";
+        $dbType = "postgres";
         if ($dbType == "postgres") {
             // get a postgres query
             return pg_fetch_array($queryResult, NULL, PGSQL_ASSOC);

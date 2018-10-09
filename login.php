@@ -16,8 +16,9 @@
 
         $queryStr = "SELECT user_name FROM userTable WHERE user_name='$username' AND password='$password'";
 		$userLogin = dbQuery($con, $queryStr);
+		$result = dbFetchArray($userLogin);
 
-		if ($userLogin) {
+		if (isset($result)) {
 
 			echo 'Successful';
 			header("refresh: 1; url = loggedInHomepage.html");

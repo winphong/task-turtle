@@ -14,13 +14,14 @@
 		$admin_name = $_POST['adminUsername'];
 		$password = $_POST['adminPassword'];
 
-        $queryStr = "SELECT admin_name FROM admin WHERE admin_name='$adminid' AND password='$password'";
-		$userLogin = dbQuery($queryStr);
+        $queryStr = "SELECT admin_name FROM admin WHERE admin_name='$admin_name' AND password='$password'";
+		$adminLogin = dbQuery($con, $queryStr);
+		$result = dbFetchArray($adminLogin);
 
-		if ($userLogin) {
+		if (isset($result)) {
 
 			echo 'Redirecting to homepage';
-			header("refresh:3; url = homepage.html");
+			header("refresh:3; url = homepage.php");
 
 		} else {
 

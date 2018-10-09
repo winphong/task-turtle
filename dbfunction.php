@@ -1,7 +1,7 @@
 <?php
 
     function getDbConnect() {
-        $dbType = "mysql";
+        $dbType = "postgres";
         if ($dbType == "postgres") {
             // get a database connection to postgres database
             $con = pg_connect("host=localhost dbname=project user=postgres password=root port=5432");
