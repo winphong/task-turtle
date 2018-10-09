@@ -11,6 +11,7 @@
             if ($con) {
                 $dbType = "postgres";
             }
+            
         } catch (Exception $e) {
             try {
                 // get a database connection to postgres database
