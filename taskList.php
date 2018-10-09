@@ -9,11 +9,11 @@
 		echo 'Not connected to server';
 	}
 
-    $queryStr = "SELECT title, description, task_date, creator FROM task ORDER BY post_date DESC";
+    $queryStr = "SELECT taskid, title, description, task_date, creator FROM task ORDER BY post_date DESC";
 	$retrieveTask = dbQuery($con, $queryStr);
 
 	while ( $arr = dbFetchArray($retrieveTask) ) {
 
-            echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'.$arr['title']."</br>".$arr['description']."</br>".$arr['task_date']."</br>".$arr['creator'].'</div>';
+        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$arr['title']."</br>"."Description: ".$arr['description']."</br>"."Date: ".$arr['task_date']."</br>"."Creator: ".$arr['creator'].'<form action="taskPage.php" method="POST"><input type="hidden" name="taskid" value='.$arr['taskid'].'><input type="submit" value="Go to task"></form></div>';
     }
 ?>
