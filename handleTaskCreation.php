@@ -15,7 +15,7 @@
 	if (isset($_POST['create_task'])) {
 
 		$title = $_POST['title'];
-		$description = ($_POST['description'] == "") ? DEFAULT : "'$_POST['description']'";
+		$description = ($_POST['description'] == "") ? "DEFAULT" : "'" . $_POST['description'] . "'";
 		$task_date = $_POST['task_date'];
 		$start_time = $_POST['start_time'];
 		$end_time = $_POST['end_time'];
