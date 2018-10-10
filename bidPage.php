@@ -5,7 +5,7 @@
     </head>
     <body>
 		
-		<h1> Welcome to Task Turtle </h1>
+		<h1> Task Turtle </h1>
 
     	<?php
 	
@@ -30,12 +30,16 @@
 			$retrieveTask = dbQuery($con, $queryStr);
 			$arr = dbFetchArray($retrieveTask);
 
+
 	        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'.$arr['title']."</br>".$arr['description']."</br>".$arr['task_date']."</br>".$arr['creator'].'</div>';
 
+	        //Submit your bid
 			echo '<form action="updateBid.php" method="POST">'."Enter your bid: ".'<input type="number" name="bidValue"/><input type="hidden" name="taskid" value='.$taskid.'><input type="submit" value="Submit your bid"/></form>'
 		?>
-
 		
+		<a href="taskPage.php">
+			<button> Back </button>
+		</a>
 
 
 	</body>

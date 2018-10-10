@@ -5,7 +5,7 @@
     </head>
     <body>
 
-    	<h1> Welcome to Task Turtle </h1>
+    	<h1> Task Turtle </h1>
 
 		<?php
 
@@ -24,7 +24,9 @@
 			session_start();
 			$username = $_SESSION["username"];
 
-			if ($taskid == null) {	
+			if ($taskid != null) {
+				$_SESSION["taskid"] = $taskid;
+			} else {	
 	        	$taskid = $_SESSION["taskid"];
 	        }
 			
@@ -38,16 +40,20 @@
 
 	        if ( $arr['creator'] == $username ) {
 				
-				//echo '<form action="viewBid.php" method="POST"><button type="hidden" name="taskid" value='.$taskid.'>Bid now</button></form>';
+				// View bid
+				//echo '<form action="viewBid.php" method="POST"><button type="hidden" name="taskid" value='.$taskid.'>View bid</button></form>';
+
+				echo '<a href="viewBid.php"><button>View bid</button></a>';
 			
 			} else {
 				
+				// Bid now
 				echo '<form action="bidPage.php" method="POST"><button type="hidden" name="taskid" value='.$taskid.'>Bid now</button></form>';
 	        }
 	        
  		?>
 		
-		<a href="taskList.php">
+		<a href="loggedInHomepage.html">
 			<button> Back </button>
 		</a>
 
