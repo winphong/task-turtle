@@ -25,7 +25,7 @@
                 </tr>
                 <tr>
                     <td>Task Date</td>
-                    <td>: <input type="date" name="start_date" size="52"/></td>
+                    <td>: <input type="date" name="task_date" size="52"/></td>
                 </tr>
                 <tr>
                     <td>Start Time</td>

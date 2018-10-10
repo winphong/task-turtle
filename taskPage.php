@@ -36,7 +36,7 @@
 			$arr = dbFetchArray($retrieveTask);
 			//TODO: edit info to be displayed, add edit/bid buttons
 
-	        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'.$arr['title']."</br>".$arr['description']."</br>".$arr['start_date']."</br>".$arr['creator'].'</div>';
+	        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'.$arr['title']."</br>".$arr['description']."</br>".$arr['task_date']."</br>".$arr['creator'].'</div>';
 
 	        if ( $arr['creator'] == $username ) {
 				
