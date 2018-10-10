@@ -22,9 +22,9 @@
 		$location = $_POST['location'];
 		$category = $_POST['category'];
 
-        $queryStr = "INSERT INTO task VALUES "
-                . "(NULL, '$title', " . $description . ", '$task_date', '$start_time', "
-                . "'$end_time', '$location', '$category', CURRENT_DATE, '" . $_SESSION['username'] . "')";
+		$queryStr = "INSERT INTO task VALUES "
+		        . "(NULL, '$title', " . $description . ", '$task_date', '$start_time', "
+		        . "'$end_time', '$location', '$category', CURRENT_DATE, '" . $_SESSION['username'] . "')";
 		$userCreateTask = dbQuery($con, $queryStr);
 
 		if ($userCreateTask) {
