@@ -1,5 +1,5 @@
 <?php
-
+	
 	require 'dbfunction.php';
 	require 'dbqueryfunction.php';
 
@@ -17,6 +17,10 @@
         $queryStr = "SELECT user_name FROM userTable WHERE user_name='$username' AND password='$password'";
 		$userLogin = dbQuery($con, $queryStr);
 		$result = dbFetchArray($userLogin);
+
+		session_start();
+		$_SESSION["username"] = $username;
+		$_SESSION["password"] = $password;
 
 		if ($result) {
 

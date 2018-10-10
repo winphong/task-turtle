@@ -28,7 +28,7 @@
 
 
 	        //Pass value to bidPage but I have no idea why is it not working
-	        echo "</br>".'<div><form action="bidPage.php" method="POST"><input type="hidden" name="bidTaskId" value='.$arr['taskid'].'><input type="submit" value="Bid now"></form></div>';
+	        echo '<form action="bidPage.php" method="POST"><button type="hidden" name="taskid" value='.$taskid.'>Bid now</button></form>';
 		?>
 		
 		<a href="taskList.php">
