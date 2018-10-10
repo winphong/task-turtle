@@ -21,18 +21,20 @@
 	$checkBidForTask =  dbQuery($con, $checkBidQuery);
 
 	$currentBid = dbFetchArray($checkBidForTask);
+	
+	// If the bidder has bid for the task before
+	if ( $currentBid ) {
 
-	if ( $checkBidForTask ) {
-
+		// If the bid value is the same
 		if ( $currentBid['bid_value'] == $bidValue ) {
-			//echo "same value";
-		} else {
-			//echo "update <br/>";
+			
+		} else { // If the bid value is different, update the bid value
+			
 			$bidUpdateQueryStr = "UPDATE bid SET bid_value='$bidValue' WHERE bidder='$username' AND task='$taskid'";
 			$bidUpdate = dbQuery($con, $bidUpdateQueryStr);
 		}
 	
-	} else {
+	} else { // If the bidder never bid for the task before
 		
 		//echo "insert <br/>";
 		$bidInsertQueryStr = "INSERT INTO bid VALUES ('$username', '$taskid', '$bidValue', 'pending')";

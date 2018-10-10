@@ -25,22 +25,35 @@
 				$taskid = $_SESSION['taskid'];
 
 				// Retrive list of bid for the particular task from the bid table
-				$queryStr = "SELECT bidder, bid_value FROM bid WHERE task='$taskid'";
+				$queryStr = "SELECT * FROM bid WHERE task='$taskid'";
 				$retrieveBidList = dbQuery($con, $queryStr);
+				
+				$arr = dbFetchArray($retrieveBidList);
 
-				echo '<form action="selectBid.php" method="POST">';
+				if ( $arr ) {
+					
+					echo '<form action="selectBid.php" method="POST">';
 
-				while ( $bid = dbFetchArray($retrieveBidList) ) {
+					while ( $bid = dbFetchArray($retrieveBidList) ) {
 
-					echo '<tr><td>'.$bid['bidder'].'</td><td>'.$bid['bid_value'].'</td><td><input type="radio" name="winningBidder" value='.$bid['bidder'].'></td></tr>';
+						echo '<tr><td>'.$bid['bidder'].'</td><td>'.$bid['bid_value'].'</td><td><input type="radio" name="winningBidder" value='.$bid['bidder'].'></td></tr>';
+					}
+
+					echo '<input type="submit" value="Select bid"/>';
+					echo '</form>';
+
+				} else {
+
+					echo 'No one has bid for the task yet!';				
 				}
-
-				echo '<input type="submit" value="Select bid"/>';
-				echo '</form>';
 
 			?>
 
 		</table>
+
+		<a href="taskPage.php">
+			<button> Back </button>
+		</a>
 
     </body> 
 </html>

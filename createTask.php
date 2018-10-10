@@ -7,6 +7,9 @@
     	<h1> Welcome to Task Turtle </h1>
 
         <h3>Create A New Task</h3>
+        <a href="loggedInHomePage.html">
+            <button> Back </button>
+        </a>
 		<form id="taskForm" action="handleTaskCreation.php" method="post">
             <table>
                 <tr>
@@ -22,15 +25,15 @@
                 </tr>
                 <tr>
                     <td>Task Date</td>
-                    <td>: <input type="text" name="task_date" size="52"/></td>
+                    <td>: <input type="date" name="start_date" size="52"/></td>
                 </tr>
                 <tr>
                     <td>Start Time</td>
-                    <td>: <input type="text" name="start_time" size="52"/></td>
+                    <td>: <input type="time" name="start_time" size="52"/></td>
                 </tr>
                 <tr>
                     <td>End Time</td>
-                    <td>: <input type="text" name="end_time" size="52"/></td>
+                    <td>: <input type="time" name="end_time" size="52"/></td>
                 </tr>
                 <tr>
                     <td>Location</td>
@@ -38,7 +41,16 @@
                 </tr>
                 <tr>
                     <td>Category</td>
-                    <td>: <input type="text" name="category" size="52"/></td>
+                    <td>: <select name="category">
+                            <option>Select category</option>
+                            <option value="Mounting & Installation">Mounting & Installation</option>
+                            <option value="Moving & Packing">Moving & Packing</option>
+                            <option value="Furniture Assembly">Furniture Assembly</option>
+                            <option value="Home Improvement">Home Improvement</option>
+                            <option value="General Handyman">General Handyman</option>
+                            <option value="Heavy Lifting">Heavy Lifting</option>
+                            <option value="Others">Others</option>
+                          </select>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>

@@ -15,16 +15,16 @@
 	if (isset($_POST['create_task'])) {
 
 		$title = $_POST['title'];
-		$description = ($_POST['description'] == "") ? "DEFAULT" : "'" . $_POST['description'] . "'";
-		$task_date = $_POST['task_date'];
+		$description = $_POST['description'];// == "") ? "DEFAULT" : "'" . $_POST['description'] . "'";
+		$start_date = $_POST['start_date'];
 		$start_time = $_POST['start_time'];
 		$end_time = $_POST['end_time'];
 		$location = $_POST['location'];
 		$category = $_POST['category'];
-
-		$queryStr = "INSERT INTO task VALUES "
-		        . "(NULL, '$title', " . $description . ", '$task_date', '$start_time', "
-		        . "'$end_time', '$location', '$category', CURRENT_DATE, '" . $_SESSION['username'] . "')";
+		$post_date = date("Y-m-d");
+		$username = $_SESSION['username'];
+		
+		$queryStr = "INSERT INTO task(title, description, start_date, start_time, end_time, location, category, post_date, creator) VALUES ('$title', '$description', '$start_date', '$start_time', '$end_time', '$location', '$category', '$post_date', '$username')";
 		$userCreateTask = dbQuery($con, $queryStr);
 
 		if ($userCreateTask) {

@@ -17,7 +17,7 @@
 
 	echo $name;
 
-	$task = pg_query("SELECT title, description, task_date, creator FROM task WHERE title = '$name'");
+	$task = pg_query("SELECT title, description, start_date, creator FROM task WHERE title = '$name'");
 
 	if ($task) {
 

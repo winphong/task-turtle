@@ -30,10 +30,10 @@
 			$retrieveTask = dbQuery($con, $queryStr);
 			$arr = dbFetchArray($retrieveTask);
 
+			// Display the information of the task
+	        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'.$arr['title']."</br>".$arr['description']."</br>".$arr['start_date']."</br>".$arr['creator'].'</div>';
 
-	        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'.$arr['title']."</br>".$arr['description']."</br>".$arr['task_date']."</br>".$arr['creator'].'</div>';
-
-	        //Submit your bid
+	        // Click to direct to another page to insert & submit your bid
 			echo '<form action="updateBid.php" method="POST">'."Enter your bid: ".'<input type="number" name="bidValue"/><input type="hidden" name="taskid" value='.$taskid.'><input type="submit" value="Submit your bid"/></form>'
 		?>
 		
