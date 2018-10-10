@@ -22,4 +22,14 @@
         }
     }
 
+    function dbAffectedRows($con, $queryResult) {
+        $dbType = "postgres";
+        if ($dbType == "postgres") {
+            // return number of affected rows for postgres database
+            return pg_affected_rows($queryResult);
+        } else if ($dbType == "mysql") {
+            // return number of affected rows for mysql database
+            return mysqli_affected_rows($con);
+        }
+    }
 ?>
