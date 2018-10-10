@@ -19,17 +19,33 @@
 			}
 
 			$taskid = $_POST['taskid'];
-			$queryStr = "SELECT title, description, task_date, creator FROM task where taskid = $taskid";
+
+			// To retrieve info from database when redirected back after submit bid
+			session_start();
+			$username = $_SESSION["username"];
+
+			if ($taskid == null) {	
+	        	$taskid = $_SESSION["taskid"];
+	        }
+			
+
+			$queryStr = "SELECT * FROM task where taskid = $taskid";
 			$retrieveTask = dbQuery($con, $queryStr);
 			$arr = dbFetchArray($retrieveTask);
 			//TODO: edit info to be displayed, add edit/bid buttons
 
 	        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'.$arr['title']."</br>".$arr['description']."</br>".$arr['task_date']."</br>".$arr['creator'].'</div>';
 
-
-	        //Pass value to bidPage but I have no idea why is it not working
-	        echo '<form action="bidPage.php" method="POST"><button type="hidden" name="taskid" value='.$taskid.'>Bid now</button></form>';
-		?>
+	        if ( $arr['creator'] == $username ) {
+				
+				//echo '<form action="viewBid.php" method="POST"><button type="hidden" name="taskid" value='.$taskid.'>Bid now</button></form>';
+			
+			} else {
+				
+				echo '<form action="bidPage.php" method="POST"><button type="hidden" name="taskid" value='.$taskid.'>Bid now</button></form>';
+	        }
+	        
+ 		?>
 		
 		<a href="taskList.php">
 			<button> Back </button>
