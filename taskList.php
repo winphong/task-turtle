@@ -9,7 +9,7 @@
 		echo 'Not connected to server';
 	}
 
-    $queryStr = "SELECT t.taskid, t.title, t.description, t.task_date, t.creator FROM task t, assigned_to a WHERE t.taskid NOT IN (SELECT DISTINCT a.task) ORDER BY post_date DESC";
+    $queryStr = "SELECT t.* FROM task t, assigned_to a WHERE t.taskid NOT IN (SELECT DISTINCT a.task) ORDER BY post_date DESC";
 	$retrieveTask = dbQuery($con, $queryStr);
 
 	while ( $arr = dbFetchArray($retrieveTask) ) {
