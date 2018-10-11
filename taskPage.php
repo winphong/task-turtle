@@ -1,10 +1,15 @@
+<?php
+    require 'checkLoginStatus.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title> Task Turtle </title>
     </head>
     <body>
-
+        <?php
+            include 'headermenu.php';
+        ?>
     	<h1> Task Turtle </h1>
 
 		<?php
@@ -18,10 +23,9 @@
 				echo 'Not connected to server';
 			}
 
-			$taskid = $_POST['taskid'];
+			$taskid = (!isset($_POST['taskid'])) ? NULL : $_POST['taskid'];
 
 			// To retrieve info from database when redirected back after submit bid
-			session_start();
 			$username = $_SESSION["username"];
 
 			if ($taskid != null) {
