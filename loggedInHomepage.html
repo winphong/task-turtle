@@ -7,9 +7,7 @@
     <body>
     	<h1> Task Turtle </h1>
         
-        <a href="homepage.php">
-            <button> Logout </button>
-        </a>
+        <button style="display: inline-block;" onclick="location.href='homepage.php';">Logout</button>
 
         <div class="searchBar" style="display: inline-block;">
             <input type="text" name="search" placeholder="Search"/> 
@@ -17,6 +15,8 @@
 
         <button style="display: inline-block;" onclick="location.href='createTask.php';">Create new task</button>
 
+        <button style="display: inline-block;" onclick="location.href='assignedTask.php';">Assigned task</button>
+        
         <div class="taskList">
             
             <?php
