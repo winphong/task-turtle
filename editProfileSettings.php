@@ -9,8 +9,8 @@
         <script>
             $('document').ready(function() {
                 $("#cancel").click(function(e) {
-                  e.preventDefault();
-                  location.href = 'viewProfileSettings.php';
+                    e.preventDefault();
+                    location.href = 'viewProfileSettings.php';
                 });
                 $("#passwordchange").click(function(e) {
                     e.preventDefault();

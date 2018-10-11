@@ -23,7 +23,7 @@
 		$_SESSION["password"] = $password;
 
 		if ($result) {
-            $_SESSION['userinfo'] = $result;
+		    $_SESSION['userinfo'] = $result;
 			echo 'Successful';
 			header("refresh:0.3; url = loggedInHomepage.html");
 

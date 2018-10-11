@@ -15,15 +15,15 @@
         <div>
             <h3>Account Information</h3>
             <table>
-            <tr>
-                <td>Username: <?= $userinfo['user_name'] ?></td>
-            </tr>
-            <tr>
-                <td>Display name: <?= $userinfo['display_name'] ?></td>
-            </tr>
-            <tr>
-                <td><button onclick="location.href='passwordChange.php';">Change Password</button></td>
-            </tr>
+                <tr>
+                    <td>Username: <?= $userinfo['user_name'] ?></td>
+                </tr>
+                <tr>
+                    <td>Display name: <?= $userinfo['display_name'] ?></td>
+                </tr>
+                <tr>
+                    <td><button onclick="location.href='passwordChange.php';">Change Password</button></td>
+                </tr>
             </table>
         </div>
         <div>
