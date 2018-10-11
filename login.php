@@ -14,7 +14,7 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-        $queryStr = "SELECT user_name FROM userTable WHERE user_name='$username' AND password='$password'";
+        $queryStr = "SELECT * FROM userTable WHERE user_name='$username' AND password='$password'";
 		$userLogin = dbQuery($con, $queryStr);
 		$result = dbFetchArray($userLogin);
 
@@ -23,7 +23,7 @@
 		$_SESSION["password"] = $password;
 
 		if ($result) {
-
+		    $_SESSION['userinfo'] = $result;
 			echo 'Successful';
 			header("refresh:0.3; url = loggedInHomepage.html");
 
