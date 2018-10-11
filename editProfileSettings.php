@@ -23,9 +23,9 @@
         <?php
             include 'headermenu.php';
         ?>
-    	<h1> Task Turtle </h1>
-    	<h2>Settings - Edit Mode</h2>
-    	<form action="updateProfile.php" method="post">
+        <h1> Task Turtle </h1>
+        <h2>Settings - Edit Mode</h2>
+        <form action="updateProfile.php" method="post">
             <div>
                 <h3>Account Information</h3>
                 <table>
