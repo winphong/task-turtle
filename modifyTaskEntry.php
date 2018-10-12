@@ -18,13 +18,18 @@
 				echo 'Not connected to server';
 			}
 
-			$taskid = $_POST['taskid'];
+            $taskid = $_POST['taskid'];
+            
+            if ($taskid == null) {
+                session_start();
+                $taskid = $_SESSION['taskid'];
+            }
 
 			$queryStr = "SELECT * FROM task WHERE taskid = $taskid";
 			$retrieveTask = dbQuery($con, $queryStr);
 			$arr = dbFetchArray($retrieveTask);
 
-	        echo "<form name='update' action='modifyTaskEntry.php' method='POST' >  
+	        echo "<form name='update' action='handleModifyTaskEntry.php' method='POST' >  
     				taskid: $arr[taskid]<input type='hidden' name='taskid' value='$arr[taskid]' /></br>
     				title:
     				<input type='text' name='title_updated' value='$arr[title]' /></br>
@@ -45,15 +50,6 @@
     				<input type='submit' name='modify' value='Modify'/>
     				</form>";
 
-    		if (isset($_POST['modify'])) {
-    			$result = dbQuery($con, "UPDATE task SET  title = '$_POST[title_updated]', description = '$_POST[description_updated]', task_date = '$_POST[task_date_updated]', start_time = '$_POST[start_time_updated]', end_time = '$_POST[end_time_updated]', location = '$_POST[location_updated]', category = '$_POST[category_updated]', creator = '$_POST[creator_updated]' WHERE taskid = $_POST[taskid]");
-        		if (!$result) {
-            		echo "Update failed!!";
-        		} else {
-            		echo "Update successful!";
-        		}
-    		}
-	        
  		?>
 		
 		<a href="adminLoggedInHomepage.html">
