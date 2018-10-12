@@ -20,8 +20,8 @@
 
 		if (isset($result)) {
 
-			echo 'Redirecting to homepage';
-			header("refresh:3; url = homepage.php");
+			echo 'Successful';
+			header("refresh:3; url = adminLoggedInHomepage.html");
 
 		} else {
 
