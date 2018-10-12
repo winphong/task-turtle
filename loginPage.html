@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
-	<header>
-		<title> Login </title>
-	</header>
+  <head>
+    <title> TaskTurtle | Log In </title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  </head>
 
 	<body>
-		
-		<p> Log In to Task Turtle </p>
-		<form action="login.php" method="post">
-			Username: <input type="text" name="username"/>
-					  </br>
-			Password: <input type="password" name="password"/>
-					  </br>
-					  <input type="submit" name="login" value="Log In"/>
-		</form>
+    <div id="header">
+      <div id="branding"> <!-- contains sitename and logo to align left -->
+        <img id="logo" src="assets/logo.png"></img>
+        <p id="sitename"><a href="homepage.php">TaskTurtle</a></p>
+      </div>
+      <ul class="nav" id="topnav">
+        <li><a href="/loginPage.html">Log In</a></li>
+        <li><a href="/signupPage.html">Sign Up</a></li>
+      </ul>
+    </div> <!-- end header -->
 
-		<p> Log In as Administrator </p>
-		<form action="adminLogin.php" method="post"/>
-			Username: <input type="text" name="adminUsername"/>
-					  </br>
-			Password: <input type="password" name="adminPassword"/>
-					  </br>
-					  <input type="submit" name="adminLogin" value="Log In as Administrator"/>
-		</form>
-		
+    <main class="flex">
+  		<h1>Log In to Task Turtle</h1>
+  		<form action="login.php" method="post">
+  			Username: <input type="text" name="username"/>
+  					  </br>
+  			Password: <input type="password" name="password"/>
+  					  </br>
+  					  <input type="submit" name="login" value="Log In"/>
+  		</form>
+
+  		<h1>Log In as Administrator</h1>
+  		<form action="adminLogin.php" method="post"/>
+  			Username: <input type="text" name="adminUsername"/>
+  					  </br>
+  			Password: <input type="password" name="adminPassword"/>
+  					  </br>
+  					  <input type="submit" name="adminLogin" value="Log In as Administrator"/>
+  		</form>
+    </main>
 	</body>

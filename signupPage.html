@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html>
-	<header>
-		<title> Login </title>
-	</header>
+	<head>
+		<title> TaskTurtle | Sign Up </title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	</head>
 
 	<body>
-		
-		<p> Sign up for Task Turtle Account </p>
-		<form action="signup.php" method="post">
-			
-			Username: <input type="text" name="username"/>
-					  </br>
-			Password: <input type="password" name="password"/>
-					  </br>
-			Name: <input type="text" name="name"/>
-				  </br>
-			User profile: <input type="text" name="userProfile"/> 
-					 	  </br>
-					  	  
-					  	  <input type="submit" name="signup" value="Sign up now!"/>
-		</form>
+    <div id="header">
+      <div id="branding"> <!-- contains sitename and logo to align left -->
+        <img id="logo" src="assets/logo.png"></img>
+        <p id="sitename"><a href="homepage.php">TaskTurtle</a></p>
+      </div>
+      <ul class="nav" id="topnav">
+        <li><a href="/loginPage.html">Log In</a></li>
+        <li><a href="/signupPage.html">Sign Up</a></li>
+      </ul>
+    </div> <!-- end header -->
+
+    <main class="flex">
+  		<h1> Sign up for a TaskTurtle Account </h1>
+  		<form action="signup.php" method="post">
+
+  			Username: <input type="text" name="username"/>
+  					  </br>
+  			Password: <input type="password" name="password"/>
+  					  </br>
+  			Name: <input type="text" name="name"/>
+  				  </br>
+  			User profile: <input type="text" name="userProfile"/>
+  					 	  </br>
+
+  	    <input type="submit" name="signup" value="Sign up now!"/>
+  		</form>
+    </main>
 
 	</body>
