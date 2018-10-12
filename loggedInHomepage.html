@@ -3,31 +3,37 @@
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Task Turtle </title>
-    </head>
+  <head>
+    <title> TaskTurtle | Home </title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div id="header">
+      <div id="branding"> <!-- contains sitename and logo to align left -->
+        <img id="logo" src="assets/logo.png"></img>
+        <p id="sitename"><a href="loggedInHomepage">TaskTurtle</a></p>
+      </div>
+      <ul class="nav" id="topnav">
+        <?php include 'headermenu.php'; ?>
+      </ul>
+    </div> <!-- end header -->
 
-    <body>
-        <?php
-            include 'headermenu.php';
-        ?>
-        <h1> Task Turtle </h1>
+    <main class="flex">
 
-        <div class="searchBar" style="display: inline-block;">
-            <input type="text" name="search" placeholder="Search"/> 
-        </div>
+      <div class="searchBar" style="display: inline-block;">
+          <input type="text" name="search" placeholder="Search"/>
+      </div>
 
-        <button style="display: inline-block;" onclick="location.href='createTask.php';">Create new task</button>
+      <button style="display: inline-block;" onclick="location.href='createTask.php';">Create new task</button>
 
-        <button style="display: inline-block;" onclick="location.href='assignedTask.php';">Assigned task</button>
-        
-        <div class="taskList">
-            
-            <?php
-                include ('taskList.php');
-            ?>
+      <button style="display: inline-block;" onclick="location.href='assignedTask.php';">Assigned task</button>
 
-        </div>
-
-    </body> 
+      <div class="taskList">
+          <?php
+              include ('taskList.php');
+          ?>
+      </div>
+    </main>
+  </body>
 </html>
