@@ -1,6 +1,3 @@
-<?php
-    require 'checkLoginStatus.php';
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,10 +5,9 @@
     </head>
 
     <body>
-        <?php
-            include 'headermenu.php';
-        ?>
-        <h1> Task Turtle </h1>
+    	<h1> Task Turtle </h1>
+        
+        <button style="display: inline-block;" onclick="location.href='homepage.php';">Logout</button>
 
         <div class="searchBar" style="display: inline-block;">
             <input type="text" name="search" placeholder="Search"/> 
@@ -21,10 +17,10 @@
 
         <button style="display: inline-block;" onclick="location.href='assignedTask.php';">Assigned task</button>
         
-        <div class="taskList">
-            
+        <div class="tables">
+
             <?php
-                include ('taskList.php');
+                include ('adminDisplayTables.php');
             ?>
 
         </div>

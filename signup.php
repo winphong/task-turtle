@@ -17,7 +17,7 @@
 		$name = $_POST['name'];
 		$userProfile = ($_POST['userProfile'] == "") ? "DEFAULT" : "'" . $_POST['userProfile'] . "'";
 
-        $queryStr = "INSERT INTO userTable VALUES ('$username', '$password', '$name', '$userProfile')";
+        $queryStr = "INSERT INTO userTable VALUES ('$username', '$password', '$name', $userProfile)";
 		$userSignUp = dbQuery($con, $queryStr);
 
 		if ($userSignUp) {

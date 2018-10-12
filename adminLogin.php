@@ -18,15 +18,15 @@
 		$adminLogin = dbQuery($con, $queryStr);
 		$result = dbFetchArray($adminLogin);
 
-		if (isset($result)) {
+		if ($result) {
 
-			echo 'Redirecting to homepage';
-			header("refresh:3; url = homepage.php");
+			echo 'Successful';
+			header("refresh:1; url = adminLoggedInHomepage.html");
 
 		} else {
 
 			echo 'Log in unsuccessful';
-			header("refresh:3; url = loginPage.html");
+			header("refresh:1; url = loginPage.html");
 		}
 	}
 ?>

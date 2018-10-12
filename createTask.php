@@ -1,3 +1,6 @@
+<?php
+    require 'checkLoginStatus.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,6 +13,10 @@
                 $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
                 $("#category").change(function(){
                     $("#category_hidden").val($("#category").find(":selected").text());
+                });
+                $("#back").click(function(e) {
+                    e.preventDefault();
+                    location.href = 'loggedInHomepage.html';
                 });
             });
             function validateForm() {
@@ -26,13 +33,12 @@
         </script>
     </head>
     <body>
+        <?php
+            include 'headermenu.php';
+        ?>
     	<h1> Welcome to Task Turtle </h1>
 
         <h3>Create A New Task</h3>
-
-        <a href="loggedInHomePage.html">
-            <button> Back </button>
-        </a>
 
 		<form id="taskForm" action="handleTaskCreation.php" method="post" onsubmit="return validateForm()">
             <table>
@@ -81,7 +87,7 @@
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td align="right"><input type="submit" name="create_task" value="Confirm"/></td>
+                    <td align="right"><button id="back">Back</button><input type="submit" name="create_task" value="Confirm"/></td>
                 </tr>
             </table>
         </form>
