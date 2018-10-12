@@ -173,6 +173,12 @@ p {
   background-color: mediumaquamarine;
 }
 
+.user-welcome {
+  background-color: none;
+  font-weight: 500;
+  pointer-events: none;
+}
+
 /* Forms */
 button, input, select, textarea {
   font-family : inherit;

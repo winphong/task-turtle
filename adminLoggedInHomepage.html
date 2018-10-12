@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Task Turtle </title>
+      <title> TaskTurtle | Home </title>
+      <link rel="stylesheet" type="text/css" href="styles.css">
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     </head>
 
     <body>
+      <div id="header">
+        <div id="branding"> <!-- contains sitename and logo to align left -->
+          <img id="logo" src="assets/logo.png"></img>
+          <p id="sitename"><a href="homepage.php">TaskTurtle</a></p>
+        </div>
+        <ul class="nav" id="topnav">
+          <li><a href="/loginPage.html">Log In</a></li>
+          <li><a href="/signupPage.html">Sign Up</a></li>
+        </ul>
+      </div> <!-- end header -->
+
     	<h1> Task Turtle </h1>
-        
+
         <button style="display: inline-block;" onclick="location.href='homepage.php';">Logout</button>
 
         <div class="searchBar" style="display: inline-block;">
-            <input type="text" name="search" placeholder="Search"/> 
+            <input type="text" name="search" placeholder="Search"/>
         </div>
 
         <button style="display: inline-block;" onclick="location.href='createTask.php';">Create new task</button>
 
         <button style="display: inline-block;" onclick="location.href='assignedTask.php';">Assigned task</button>
-        
+
         <div class="tables">
 
             <?php
@@ -25,5 +38,5 @@
 
         </div>
 
-    </body> 
+    </body>
 </html>

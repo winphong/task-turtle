@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title> TaskTurtle | Home </title>
-      <link rel="stylesheet" type="text/css" href="styles.css">
-      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <title> TaskTurtle | Home </title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   </head>
 
   <body>
