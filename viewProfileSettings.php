@@ -35,10 +35,11 @@
               <td><?= $userinfo['user_profile'] ?></td>
             </tr>
           </table>
-
           <ul class="nav">
             <li class="special-button" onclick="location.href='passwordChange.php';">Change Password</li>
-            <li class="special-button" onclick="location.href='editProfileSettings.php';">Edit Bio</li>
+            <li class="special-button" onclick="location.href='editProfileSettings.php';">Edit Biography</li>
+            <li class="special-button" onclick="location.href='listOfPostedTask.php';">Posted Task</li>
+            <li class="special-button" onclick="location.href='assignedTaskForBidder.php';">Succesful Bidder's Task</li>
           </ul>
       </main>
     </body>

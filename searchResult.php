@@ -14,7 +14,10 @@
 	$date = date("Y-m-d");
 	echo $date;
 
-    $queryStr = "SELECT t.* FROM task t, assigned_to a WHERE (t.taskid NOT IN (SELECT DISTINCT a.task)) AND (t.task_date >= '$date') ORDER BY post_date DESC";
+	$searchWord = $_POST['searchWord'];
+
+    $queryStr = "SELECT t.* FROM task t, assigned_to a WHERE (t.taskid NOT IN (SELECT DISTINCT a.task)) AND (t.task_date >= '$date') AND (lower(t.title) LIKE lower('%$searchWord%')) ORDER BY post_date DESC";
+
 	$retrieveTask = dbQuery($con, $queryStr);
 
 	while ( $arr = dbFetchArray($retrieveTask) ) {

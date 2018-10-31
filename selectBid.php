@@ -20,7 +20,7 @@
 	$successQueryStr = "UPDATE bid SET status='successful' WHERE task='$taskid' AND bidder='$winningBidder'";
 	$updateSuccessStatus = dbQuery($con, $successQueryStr);
 
-	$assignQueryStr = "INSERT INTO assigned_to VALUES ('$taskid', '$winningBidder')";
+	$assignQueryStr = "INSERT INTO assigned_to VALUES ('$taskid', '$winningBidder', 'FALSE')";
 	$assignTask = dbQuery($con, $assignQueryStr);
 
 	if ( $updateFailedStatus AND $updateSuccessStatus AND $assignQueryStr ) {

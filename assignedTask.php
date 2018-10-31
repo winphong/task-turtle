@@ -23,12 +23,12 @@
 			session_start();
 			$assignee = $_SESSION['username'];
 
-			$retrieveAssignedToTaskQueryStr = "SELECT task FROM assigned_to WHERE assignee='$assignee'";
+			$retrieveAssignedToTaskQueryStr = "SELECT * FROM assigned_to WHERE assignee='$assignee'";
 			$retrieveAssignedTask = dbQuery($con, $retrieveAssignedToTaskQueryStr);
 			$assignedTaskArr = dbFetchArray($retrieveAssignedTask);
 			$task = $assignedTaskArr['task'];
-
-			// If assignned 
+		
+			// If assigned 
 			if ( $assignedTaskArr ) {
 
 				$retrieveTaskQueryStr = "SELECT * FROM task WHERE taskid='$task'";
@@ -36,14 +36,14 @@
 
 				$arr = dbFetchArray($retrieveTask);
 
-				echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$arr['title']."</br>"."Description: ".$arr['description']."</br>"."Date: ".$arr['task_date']."</br>"."Creator: ".$arr['creator'].'</div>';
+				echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$arr['title']."</br>"."Description: ".$arr['description']."</br>"."Date: ".$arr['task_date']."</br>"."Creator: ".$arr['creator']."</br>"."Status: ".$status.'</div>';
 
 			} else { // If not assigned
 
 				echo 'Not assigned any task';
 			}
-		?>
 
-		<button style="display: inline-block;" onclick="location.href='loggedInHomepage.html';">Back</button>
+			echo "</br>".'<a href="loggedInHomepage.html"><button> Back </button></a>';
+		?>		
     </body> 
 </html>

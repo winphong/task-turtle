@@ -1,6 +1,5 @@
 <?php
     require 'checkLoginStatus.php';
-    $_SESSION["state"] = 'general'
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +25,7 @@
         
         <form action="searchResultPage.html" method="post">
           <input type="text" name="searchWord" placeholder="Search"/>
-          <button> Go! </button>
+          <button> Search </button>
         </form>
 
       </div>
@@ -37,7 +36,7 @@
 
       <div class="taskList">
           <?php
-              include ('taskList.php');
+              include ('searchResult.php');
           ?>
       </div>
     </main>

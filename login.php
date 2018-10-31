@@ -19,18 +19,20 @@
         $result = dbFetchArray($userLogin);
 
         session_start();
+        // Double recorded
         $_SESSION["username"] = $username;
         $_SESSION["password"] = $password;
 
         if ($result) {
+            // Double recorded
             $_SESSION['userinfo'] = $result;
             echo 'Successful';
-            header("refresh:0.3; url = loggedInHomepage.html");
+            header("refresh:0.1; url = loggedInHomepage.html");
 
         } else {
 
             echo 'Log in unsuccessful';
-            header("refresh:3; url = loginPage.html");
+            header("refresh:0.1; url = loginPage.html");
         }
     }
 ?>

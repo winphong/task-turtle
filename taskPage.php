@@ -39,7 +39,7 @@
 			$retrieveTask = dbQuery($con, $queryStr);
 			$arr = dbFetchArray($retrieveTask);
 
-	        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'.$arr['title']."</br>".$arr['description']."</br>".$arr['task_date']."</br>".$arr['creator'].'</div>';
+	        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$arr['title']."</br>"."Description: ".$arr['description']."</br>"."Task date: ".$arr['task_date']."</br>"."Start time: ".$arr['start_time']."</br>"."End time: ".$arr['end_time']."</br>"."Location :".$arr['location']."</br>"."Category: ".$arr['category']."</br>"."Post date: ".$arr['post_date']."</br>"."Task creator: ".$arr['creator'].'</div>';
 
 	        //TO-DO: Add condition to check if current start time > assigned end time, don't allow bid
 	        // Assigned-to component
@@ -69,16 +69,16 @@
 				echo '<form action="bidPage.php" method="POST"><button type="hidden" name="taskid" value='.$taskid.'>Bid now</button></form>';
 	        }
 
-	        
-	        
+	        $state = $_SESSION["state"];
 
-	        
+	        if ( $state == 'personal' ) {
+
+				echo '<a href="listOfPostedTask.php"><button> Back </button></a>';
+			
+			} else {
+
+				echo '<a href="loggedInHomepage.html"><button> Back </button></a>';
+			}        
  		?>
-		
-		<a href="loggedInHomepage.html">
-			<button> Back </button>
-		</a>
-
-		
 	</body>
 </html>
