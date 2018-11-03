@@ -16,7 +16,7 @@
                 });
                 $("#back").click(function(e) {
                     e.preventDefault();
-                    location.href = 'loggedInHomepage.html';
+                    window.history.back();
                 });
             });
             function validateForm() {
@@ -42,6 +42,16 @@
 
 		<form id="taskForm" action="handleTaskCreation.php" method="post" onsubmit="return validateForm()">
             <table>
+                <?php
+                    if (isset($userinfo['admin_name'])) {
+                        echo "
+                            <tr>
+                                <td>Creator's Username</td>
+                                <td>: <input class='mandatory' type='text' name='creator' size='40' /></td>
+                            </tr>
+                        ";
+                    }
+                ?>
                 <tr>
                     <td>Title</td>
                     <td>: <input class="mandatory" type="text" name="title" size="40"/></td>
