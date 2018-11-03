@@ -22,7 +22,7 @@
         $location = $_POST['location'];
         $category = $_POST['category'];
         $post_date = date("Y-m-d");
-        $username = $_SESSION['username'];
+        $username = isset($_POST['creator']) ? $_POST['creator'] : $_SESSION['username'];
 
         $queryStr = "INSERT INTO task(title, description, task_date, start_time, end_time, location, category, post_date, creator) VALUES ('$title', $description, '$task_date', '$start_time', '$end_time', '$location', '$category', '$post_date', '$username')";
         $userCreateTask = dbQuery($con, $queryStr);
