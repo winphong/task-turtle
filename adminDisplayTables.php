@@ -4,12 +4,12 @@
     require 'dbqueryfunction.php';
 
 	$con = getDbConnect();
-
+	
 	if (!$con) {
 		echo 'Not connected to server';
 	}
 
-    $queryStr = "SELECT t.* FROM task t ORDER BY taskid";
+    $queryStr = "SELECT * FROM task ORDER BY taskid";
 	$retrieveTask = dbQuery($con, $queryStr);
 
 	echo '<p>Task Table</p>';
