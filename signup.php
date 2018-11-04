@@ -14,10 +14,10 @@
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		$name = ($_POST['userProfile'] == "") ? $username : "'" . $_POST['userProfile'] . "'";
-		$userProfile = ($_POST['userProfile'] == "") ? "DEFAULT" : "'" . $_POST['userProfile'] . "'";
+		$name = $_POST['name'];
+		$userProfile = ($_POST['userProfile'] == "") ? "DEFAULT" : $_POST['userProfile'];
 
-        $queryStr = "INSERT INTO userTable VALUES ('$username', '$password', '$name', $userProfile)";
+        $queryStr = "INSERT INTO userTable VALUES ('$username', '$password', '$name', '$userProfile')";
 		$userSignUp = dbQuery($con, $queryStr);
 
 		if ($userSignUp) {
