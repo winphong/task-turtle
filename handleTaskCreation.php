@@ -29,11 +29,22 @@
 
         if ($userCreateTask) {
             echo "Task created successfully!";
-            header("refresh:1; url = loggedInHomepage.html");
+            
+            if (isset($_POST['creator'])) {
+                
+                header("refresh:0;url = 'adminLoggedInHomepage.html'");
+            
+            } else {
+
+                header("refresh:0; url = 'loggedInPage.html'");
+            }
+
         } else {
             echo "Task creation failed.";
-            header("refresh:2; url = createTask.php");
+            header("refresh:0; url = createTask.php");
         }
+
+
     }
 
 ?>

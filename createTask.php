@@ -28,13 +28,16 @@
                         return false;
                     }
                 });
-                return $submitForm;
             }
         </script>
     </head>
     <body>
+        
         <?php
-            include 'headermenu.php';
+
+            if (!isset($userinfo['admin_name'])) {
+                include 'headermenu.php';
+            }
         ?>
     	<h1> Welcome to Task Turtle </h1>
 
@@ -92,14 +95,27 @@
                             <option value="6">Heavy Lifting</option>
                             <option value="7">Others</option>
                         </select>
-                        <input id="category_hidden" type="hidden" name="category" />
+                        <input id="category_hidden" type="hidden" name="category" />  
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td align="right"><button id="back">Back</button><input type="submit" name="create_task" value="Confirm"/></td>
+                    <td>
+                        <input type="submit" name="create_task" value="Confirm"/>
+                    </td>
                 </tr>
             </table>
         </form>
+
+        <?php
+
+            if (isset($userinfo['admin_name'])) {
+                
+                echo '<a href="adminLoggedInHomepage.html"><button>Back</button></a>';
+
+            } else { 
+
+                echo '<a href="loggedInHomepage.html"><button>Back</button></a>';
+            }
+        ?>                 
 	</body>
 </html>

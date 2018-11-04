@@ -22,15 +22,17 @@
       </div> <!-- end header -->
 
     	<h1> Task Turtle </h1>
-          
-        <div class="searchBar" style="display: inline-block;">
-            <input type="text" name="search" placeholder="Search"/>
-        </div>
+        <form action="adminAssignedSearchResultPage.html" method="POST"> 
+          <div class="searchBar" style="display: inline-block;">
+              <input type="text" name="searchWord" placeholder="Search"/>
+              <button> Go! </button>
+          </div>
+        </form>
+
         </br>
+        
+        <button style="display: inline-block;" onclick="location.href='adminLoggedInHomepage.html';">Home page</button>
         <button style="display: inline-block;" onclick="location.href='createTask.php';">Create new task</button>
-
-        <button style="display: inline-block;" onclick="location.href='adminDisplayAssignedTask.html';">View all assigned</button>
-
 
         <div class="tables">
 
