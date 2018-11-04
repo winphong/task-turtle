@@ -23,7 +23,6 @@
 
     require 'dbfunction.php';
     require 'dbqueryfunction.php';
-    require 'checkLoginStatus.php';
 
 	$con = getDbConnect();
 
@@ -31,7 +30,6 @@
 		echo 'Not connected to server';
 	}
 
-	session_start();
 	$_SESSION["state"] = 'personal';
 
 	$creator = $userinfo['user_name'];
