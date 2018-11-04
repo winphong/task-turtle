@@ -16,7 +16,13 @@
                 });
                 $("#back").click(function(e) {
                     e.preventDefault();
-                    window.history.back();
+                    <?php
+                        if (isset($userinfo['admin_name'])) {
+                            echo "window.location.replace('adminLoggedInHomepage.html')\n";
+                        } else {
+                            echo "window.location.replace('loggedInHomepage.html')\n";
+                        }
+                    ?>
                 });
             });
             function validateForm() {
@@ -28,6 +34,7 @@
                         return false;
                     }
                 });
+                return $submitForm;
             }
         </script>
     </head>
@@ -95,27 +102,16 @@
                             <option value="6">Heavy Lifting</option>
                             <option value="7">Others</option>
                         </select>
-                        <input id="category_hidden" type="hidden" name="category" />  
+                        <input id="category_hidden" type="hidden" name="category" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" name="create_task" value="Confirm"/>
+                        <td>&nbsp;</td>
+                        <td align="right"><button id="back">Back</button><input type="submit" name="create_task" value="Confirm"/></td>
                     </td>
                 </tr>
             </table>
         </form>
-
-        <?php
-
-            if (isset($userinfo['admin_name'])) {
-                
-                echo '<a href="adminLoggedInHomepage.html"><button>Back</button></a>';
-
-            } else { 
-
-                echo '<a href="loggedInHomepage.html"><button>Back</button></a>';
-            }
-        ?>                 
 	</body>
 </html>
