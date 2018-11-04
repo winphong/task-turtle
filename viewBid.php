@@ -34,6 +34,8 @@
 					
 					echo '<form action="selectBid.php" method="POST">';
 
+                    echo '<tr><td>'.$arr['bidder'].'</td><td>'.$arr['bid_value'].'</td><td><input type="radio" name="winningBidder" value='.$arr['bidder'].'></td></tr>';
+
 					while ( $bid = dbFetchArray($retrieveBidList) ) {
 
 						echo '<tr><td>'.$bid['bidder'].'</td><td>'.$bid['bid_value'].'</td><td><input type="radio" name="winningBidder" value='.$bid['bidder'].'></td></tr>';
