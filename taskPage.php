@@ -28,9 +28,9 @@
 			// To retrieve info from database when redirected back after submit bid
 			$username = $_SESSION["username"];
 
-			if ($taskid != null) {
+			if ($taskid != NULL) {
 				$_SESSION["taskid"] = $taskid;
-			} else {	
+			} else {
 	        	$taskid = $_SESSION["taskid"];
 	        }
 			

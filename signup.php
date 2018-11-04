@@ -14,7 +14,7 @@
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		$name = $_POST['name'];
+		$name = ($_POST['userProfile'] == "") ? $username : "'" . $_POST['userProfile'] . "'";
 		$userProfile = ($_POST['userProfile'] == "") ? "DEFAULT" : "'" . $_POST['userProfile'] . "'";
 
         $queryStr = "INSERT INTO userTable VALUES ('$username', '$password', '$name', $userProfile)";
@@ -22,10 +22,10 @@
 
 		if ($userSignUp) {
 			echo "Account created successfully";
-			header("refresh:3; url = homepage.php");
+			header("refresh:0; url = homepage.php");
 		} else {
 			echo 'Account not created';
-			header("refresh:3; url = signupPage.html");
+			header("refresh:0; url = signupPage.html");
 		}
 	}
 ?>
