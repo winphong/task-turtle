@@ -36,7 +36,7 @@
             
             } else {
 
-                header("refresh:0; url = 'loggedInPage.html'");
+                header("refresh:0; url = 'loggedInHomepage.html'");
             }
 
         } else {
