@@ -68,10 +68,40 @@ INSERT INTO task(title, description, task_date, start_time, end_time, location, 
 -- Admin
 INSERT INTO admin VALUES ('admin1', 'password1', 'Major Neal');
 
+-- Bids
+INSERT INTO bid VALUES ('Brooks', 1, 15.50, 'successful');
+INSERT INTO bid VALUES ('user7', 1, 30.00, 'failed');
+INSERT INTO bid VALUES ('charlottehere', 1, 21.30, 'failed');
+INSERT INTO bid VALUES ('Katherine', 8, 10.00, 'successful');
+INSERT INTO bid VALUES ('Doradora', 8, 12.20, 'failed');
+INSERT INTO bid VALUES ('Roy', 16, 100.00, 'failed');
+INSERT INTO bid VALUES ('glennnn', 16, 50.00, 'successful');
+INSERT INTO bid VALUES ('Jon', 12, 30.00, 'successful');
+INSERT INTO bid VALUES ('Lesa', 7, 25.25, 'successful');
+INSERT INTO bid VALUES ('user9', 7, 30.00, 'failed');
+INSERT INTO bid VALUES ('user5', 9, 20.50, 'failed');
+INSERT INTO bid VALUES ('Norma0316', 9, 20.00, 'successful');
+INSERT INTO bid VALUES ('user2', 23, 20.00, 'failed');
+INSERT INTO bid VALUES ('Kristina', 23, 25.00, 'failed');
+INSERT INTO bid VALUES ('Katherine', 23, 15.50, 'successful');
+INSERT INTO bid VALUES ('Penny', 23, 15.50, 'failed');
+INSERT INTO bid VALUES ('Katherine', 10, 10.95, 'successful');
+INSERT INTO bid VALUES ('user6', 4, 25.90, 'successful');
+INSERT INTO bid VALUES ('user6', 5, 60.00, 'successful');
+INSERT INTO bid VALUES ('Felicia', 5, 80.00, 'failed');
+INSERT INTO bid VALUES ('user6', 15, 46.20, 'successful');
+INSERT INTO bid VALUES ('Andrea', 15, 50.00, 'failed');
+INSERT INTO bid VALUES ('user6', 31, 30.00, 'failed');
+INSERT INTO bid VALUES ('jwhite', 31, 20.00, 'successful');
+INSERT INTO bid VALUES ('Violet', 13, 50.00, 'failed');
+INSERT INTO bid VALUES ('Lesa', 13, 40.00, 'successful');
+INSERT INTO bid VALUES ('user10', 28, 42.00, 'successful');
+INSERT INTO bid VALUES ('user6', 33, 9.99, 'successful');
+
 -- Assigned To
 INSERT INTO assigned_to VALUES (1, 'Brooks', TRUE);
 INSERT INTO assigned_to VALUES (8, 'Katherine', TRUE);
-INSERT INTO assigned_to VALUES (16, 'Glennn', TRUE);
+INSERT INTO assigned_to VALUES (16, 'glennnn', TRUE);
 INSERT INTO assigned_to VALUES (12, 'Jon', TRUE);
 INSERT INTO assigned_to VALUES (7, 'Lesa', TRUE);
 INSERT INTO assigned_to VALUES (9, 'Norma0316', TRUE);
