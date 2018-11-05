@@ -67,3 +67,20 @@ INSERT INTO task(title, description, task_date, start_time, end_time, location, 
 
 -- Admin
 INSERT INTO admin VALUES ('admin1', 'password1', 'Major Neal');
+
+-- Assigned To
+INSERT INTO assigned_to VALUES (1, 'Brooks', TRUE);
+INSERT INTO assigned_to VALUES (8, 'Katherine', TRUE);
+INSERT INTO assigned_to VALUES (16, 'Glennn', TRUE);
+INSERT INTO assigned_to VALUES (12, 'Jon', TRUE);
+INSERT INTO assigned_to VALUES (7, 'Lesa', TRUE);
+INSERT INTO assigned_to VALUES (9, 'Norma0316', TRUE);
+INSERT INTO assigned_to VALUES (23, 'Katherine', TRUE);
+INSERT INTO assigned_to VALUES (10, 'Katherine', TRUE);
+INSERT INTO assigned_to VALUES (4, 'user6', TRUE);
+INSERT INTO assigned_to VALUES (5, 'user6', TRUE);
+INSERT INTO assigned_to VALUES (15, 'user6', TRUE);
+INSERT INTO assigned_to VALUES (31, 'jwhite', TRUE);
+INSERT INTO assigned_to VALUES (13, 'Lesa', TRUE);
+INSERT INTO assigned_to VALUES (28, 'user10', TRUE);
+INSERT INTO assigned_to VALUES (33, 'user6', TRUE);
