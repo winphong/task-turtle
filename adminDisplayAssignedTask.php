@@ -19,7 +19,7 @@
 
     while ( $arr = dbFetchArray($retrieveTask) ) {
 
-      if ( $arr['completed'] == t ) {
+      if ( $arr['completed'] == 't' || $arr['completed'] == 1 ) {
         
         $status = 'Completed';
       

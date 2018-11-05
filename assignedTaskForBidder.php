@@ -32,7 +32,7 @@
 
 		$creator = $userinfo['user_name'];
 
-		if ($_POST["completeTheJob"] == TRUE) {
+		if (isset($_POST["completeTheJob"]) && $_POST["completeTheJob"] == TRUE) {
 			//Update task completed status
 			$assignee = $_POST["assignee"];
 
@@ -46,7 +46,7 @@
 
 		while ( $arr = dbFetchArray($query) ) {
 
-			if ( $arr['completed'] == t ) {
+			if ( $arr['completed'] == 't' || $arr['completed'] == 1 ) {
 				$status = 'Completed';
 			} else {
 				$status = 'Pending';
