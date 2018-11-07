@@ -59,7 +59,7 @@
 	        	// View bid
 	        	echo '<a href="viewBid.php"><button>View bid</button></a>';
 
-	        } else if ( $arr['task_date'] == $assignedTaskArr['task_date'] AND $assignedTaskArr['end_time'] > $arr['start_time'] ) {
+	        } else if ( $arr['task_date'] == $assignedTaskArr['task_date'] AND (($assignedTaskArr['start_time'] <= $arr['start_time'] AND $assignedTaskArr['end_time'] > $arr['start_time']) OR ($assignedTaskArr['start_time'] < $arr['end_time'] AND $assignedTaskArr['start_time'] > $arr['start_time'])) ) {
 				
 				echo 'Bidding not allowed! </br>';
 			
