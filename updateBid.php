@@ -31,23 +31,23 @@
 
                 $bidUpdateQueryStr = "UPDATE bid SET bid_value='$bidValue' WHERE bidder='$username' AND task='$taskid'";
                 $bidUpdate = dbQuery($con, $bidUpdateQueryStr);
+                echo "Bid updated successfully";
+                header("refresh:1; url = taskPage.php");
             }
 
         } else { // If the bidder never bid for the task before
 
             $bidInsertQueryStr = "INSERT INTO bid VALUES ('$username', '$taskid', '$bidValue', 'pending')";
             $bidInsert = dbQuery($con, $bidInsertQueryStr);
+
+            if (dbAffectedRows($con, $bidInsert) > 0) {
+                echo "Bid submitted successfully";
+                header("refresh:1; url = taskPage.php");
+            } else {
+                echo "Bid failed. " . dbGetErrorMessage($con);
+                header("refresh:2; url = taskPage.php");
+            }
         }
 
-        if ($bidUpdate) {
-            echo "Bid updated successfully";
-            header("refresh:1; url = taskPage.php");
-        } else if (dbAffectedRows($con, $bidInsert) > 0) {
-            echo "Bid submitted successfully";
-            header("refresh:1; url = taskPage.php");
-        } else {
-            echo "Bid failed. " . dbGetErrorMessage($con);
-            header("refresh:2; url = taskPage.php");
-        }
     }
 ?>
