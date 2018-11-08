@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Task Turtle - Profile Settings </title>
+        <title> Task Turtle | Profile Settings </title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             $('document').ready(function() {
@@ -21,10 +21,10 @@
     </head>
     <body>
         <?php
-            include 'headermenu.php';
+            include 'template.php';
         ?>
         <h1> Task Turtle </h1>
-        <h2>Settings - Edit Mode</h2>
+        <h2 style="padding-bottom: 0.5em;">Settings - Edit Mode</h2>
         <form action="updateProfile.php" method="post">
             <div>
                 <h3>Account Information</h3>
@@ -40,6 +40,7 @@
                 </tr>
                 </table>
             </div>
+            <br />
             <div>
                 <h3>Profile Bio</h3>
                 <p><input type="text" name="user_profile" value="<?= $userinfo['user_profile'] ?>"></p>

@@ -1,10 +1,11 @@
+<?php require 'checkLoginStatus.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Task Turtle </title>
+        <title> Task Turtle | Bidding </title>
     </head>
     <body>
-		
+		<?php include 'template.php'; ?>
 		<h1> Task Turtle </h1>
 
     	<?php

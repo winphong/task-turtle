@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Task Turtle </title>
+        <title> Task Turtle | Task Page </title>
     </head>
     <body>
         <?php
-            include 'headermenu.php';
+            include 'template.php';
         ?>
     	<h1> Task Turtle </h1>
 

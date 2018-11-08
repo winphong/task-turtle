@@ -1,10 +1,12 @@
+<?php require 'checkLoginStatus.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Task Turtle </title>
+        <title> Task Turtle | Assigned Tasks </title>
     </head>
 
     <body>
+        <?php include 'template.php'; ?>
     	<h1> Task Turtle </h1>
 
     	<h3> Assigned task </h3>
@@ -20,24 +22,20 @@
 				echo 'Not connected to server';
 			}
 
-			session_start();
 			$assignee = $_SESSION['username'];
 
-			$retrieveAssignedToTaskQueryStr = "SELECT * FROM assigned_to WHERE assignee='$assignee'";
+			$retrieveAssignedToTaskQueryStr = "SELECT * FROM assigned_to, task WHERE task = taskid AND assignee='$assignee' ORDER BY completed, task_date DESC";
 			$retrieveAssignedTask = dbQuery($con, $retrieveAssignedToTaskQueryStr);
 			$assignedTaskArr = dbFetchArray($retrieveAssignedTask);
-			$task = $assignedTaskArr['task'];
 		
 			// If assigned 
 			if ( $assignedTaskArr ) {
-
-				$retrieveTaskQueryStr = "SELECT * FROM task WHERE taskid='$task'";
-				$retrieveTask = dbQuery($con, $retrieveTaskQueryStr);
-
-				$arr = dbFetchArray($retrieveTask);
-
-				echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$arr['title']."</br>"."Description: ".$arr['description']."</br>"."Date: ".$arr['task_date']."</br>"."Creator: ".$arr['creator']."</br>"."Status: ".$status.'</div>';
-
+			    $status = ($assignedTaskArr['completed'] == "t" || $assignedTaskArr['completed'] == 1) ? "Completed" : "Pending";
+				echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$assignedTaskArr['title']."</br>"."Description: ".$assignedTaskArr['description']."</br>"."Date: ".$assignedTaskArr['task_date']."</br>"."Start Time: ".$assignedTaskArr['start_time']."</br>"."End Time: ".$assignedTaskArr['end_time']."</br>"."Creator: ".$assignedTaskArr['creator']."</br>"."Status: ".$status.'</div>';
+                while ($arr = dbFetchArray($retrieveAssignedTask)) {
+                    $status = ($arr['completed'] == "t" || $arr['completed'] == 1) ? "Completed" : "Pending";
+                    echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$arr['title']."</br>"."Description: ".$arr['description']."</br>"."Date: ".$arr['task_date']."</br>"."Start Time: ".$assignedTaskArr['start_time']."</br>"."End Time: ".$assignedTaskArr['end_time']."</br>"."Creator: ".$arr['creator']."</br>"."Status: ".$status.'</div>';
+                }
 			} else { // If not assigned
 
 				echo 'Not assigned any task';

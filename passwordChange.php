@@ -3,7 +3,7 @@
 ?>
 <html>
     <head>
-        <title>Task Turtle - Change Password</title>
+        <title>Task Turtle | Change Password</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             function checkPasswordMatch() {
@@ -35,7 +35,7 @@
     </head>
     <body>
         <?php
-            include 'headermenu.php';
+            include 'template.php';
         ?>
         <h1> Task Turtle </h1>
         <div>
