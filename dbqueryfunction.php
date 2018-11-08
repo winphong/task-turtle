@@ -32,4 +32,15 @@
             return mysqli_affected_rows($con);
         }
     }
+
+    function dbGetErrorMessage($con) {
+        $dbType = "postgres";
+        if ($dbType == "postgres") {
+            // return defined notice for postgres database
+            return pg_last_notice($con);
+        } else if ($dbType == "mysql") {
+            // return defined error message for mysql database
+            return mysqli_error($con);
+        }
+    }
 ?>
