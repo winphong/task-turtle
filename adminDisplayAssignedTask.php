@@ -28,7 +28,7 @@
         $status = 'Pending';
       }
 
-        echo '<tr><td>'.$arr['taskid'].'</td><td>'.$arr['title'].'</td><td>'.$arr['description'].'</td><td>'.$arr['task_date'].'</td><td>'.$arr['start_time'].'</td><td>'.$arr['end_time'].'</td><td>'.$arr['location'].'</td><td>'.$arr['category'].'</td><td>'.$arr['post_date'].'</td><td>'.$arr['creator'].'</td><td>'.$status.'</td><td>'.$arr['assignee'].'</td><td>'.'<form action="modifyTaskEntry.php" method="POST"><button type="hidden" name="taskid" value='.$arr['taskid'].'>Modify</button></form>'.'</th><th>'.'<form action="deleteTaskEntry.php" method="POST"><button type="hidden" name="taskid" value='.$arr['taskid'].'>Delete</button></form>'.'</th><th>';
+        echo '<tr><td>'.$arr['taskid'].'</td><td>'.$arr['title'].'</td><td>'.$arr['description'].'</td><td>'.$arr['task_date'].'</td><td>'.$arr['start_time'].'</td><td>'.$arr['end_time'].'</td><td>'.$arr['location'].'</td><td>'.$arr['category'].'</td><td>'.$arr['post_date'].'</td><td>'.$arr['creator'].'</td><td>'.$status.'</td><td>'.$arr['assignee'].'</td><td>'.'<form action="modifyTaskEntry.php" method="POST"><input type="hidden" name="state" value="assigned"></input><button type="hidden" name="taskid" value='.$arr['taskid'].'>Modify</button></form>'.'</th><th>'.'<form action="deleteTaskEntry.php" method="POST"><input type="hidden" name="state" value="assigned"></input><button type="hidden" name="taskid" value='.$arr['taskid'].'>Delete</button></form>'.'</th><th>';
     }
   
     echo '</table></div>';

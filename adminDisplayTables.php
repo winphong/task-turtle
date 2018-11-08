@@ -9,7 +9,7 @@
 		echo 'Not connected to server';
 	}
 
-    $queryStr = "SELECT * FROM task ORDER BY taskid";
+    $queryStr = "SELECT * FROM task ORDER BY post_date DESC";
 	$retrieveTask = dbQuery($con, $queryStr);
 
 	echo '<p>Task Table</p>';

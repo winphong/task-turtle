@@ -32,7 +32,7 @@
             
             if (isset($_POST['creator'])) {
                 
-                header("refresh:0;url = 'adminLoggedInHomepage.html'");
+                header("refresh:0;url = 'adminSearchResultPage.html'");
             
             } else {
 

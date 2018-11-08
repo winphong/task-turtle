@@ -7,7 +7,7 @@
   <div id="header">
     <div id="branding"> <!-- contains sitename and logo to align left -->
       <img id="logo" src="assets/logo.png"></img>
-      <p id="sitename"><a href="loggedInHomepage">TaskTurtle</a></p>
+      <p id="sitename"><a href="loggedInHomepage.html">TaskTurtle</a></p>
     </div>
     <ul class="nav" id="topnav">
       <?php include 'headermenu.php'; ?>

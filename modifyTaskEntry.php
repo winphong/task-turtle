@@ -52,9 +52,24 @@
 
  		?>
 		
-		<a href="adminLoggedInHomepage.html">
-			<button> Back </button>
-		</a>
+        <?php
+
+            $val = $_POST["state"];
+
+            if ( $val == "assigned" ) {
+                
+                echo '<a href="adminDisplayAssignedTask.html">
+                    <button> Back </button>
+                </a>';
+
+            } else {
+
+                echo '<a href="adminSearchResultPage.html">
+                    <button> Back </button>
+                </a>';
+            }
+		
+        ?>
 
 		
 	</body>

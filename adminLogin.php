@@ -24,7 +24,7 @@
 
 			echo 'Successful';
 			$_SESSION['userinfo'] = $result;
-			header("refresh:1; url = adminLoggedInHomepage.html");
+			header("refresh:1; url = adminSearchResultPage.html");
 
 		} else {
 
