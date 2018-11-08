@@ -42,6 +42,19 @@ END$$
 
 DELIMITER ;
 
+-- Procedure to do checking on task table
+DELIMITER $$
+
+CREATE PROCEDURE check_insert_task(IN task_date DATE, IN task_start_time TIME, IN task_end_time TIME)
+BEGIN
+    IF (task_date < CURRENT_DATE) OR (task_end_time <= task_start_time) THEN
+        SIGNAL SQLSTATE '45002'
+            SET MESSAGE_TEXT = 'Please ensure that your date and timings are valid. Tasks cannot be scheduled before the current date, and the end time must not be earlier than the start time.';
+    END IF;
+END$$
+
+DELIMITER ;
+
 
 
 -- Triggers
@@ -77,6 +90,18 @@ BEGIN
     FROM task
     WHERE taskid = NEW.task;
     CALL check_assigned_to(NEW.assignee, bid_task_date, bid_task_start_time, bid_task_end_time, 1);
+END$$
+
+DELIMITER ;
+
+-- Trigger on insertion of task
+DELIMITER $$
+
+CREATE TRIGGER check_insert_task
+BEFORE INSERT ON task
+FOR EACH ROW
+BEGIN
+    CALL check_insert_task(NEW.task_date, NEW.start_time, NEW.end_time);
 END$$
 
 DELIMITER ;
@@ -153,6 +178,18 @@ BEGIN
 END; $$
 LANGUAGE PLPGSQL;
 
+-- Function to validate task insertion
+CREATE FUNCTION check_insert_task()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF (NEW.task_date < CURRENT_DATE) OR (NEW.end_time <= NEW.start_time) THEN
+        RAISE NOTICE 'Please ensure that your date and timings are valid. Tasks cannot be scheduled before the current date, and the end time must not be earlier than the start time.';
+        RETURN NULL;
+    END IF;
+    RETURN NEW;
+END; $$
+LANGUAGE PLPGSQL;
+
 
 
 -- Triggers
@@ -168,6 +205,11 @@ BEFORE INSERT ON assigned_to
 FOR EACH ROW
 EXECUTE PROCEDURE check_assigned_to_on_assignment();
 
+-- Trigger on insertion for task
+CREATE TRIGGER check_insert_task
+BEFORE INSERT ON task
+FOR EACH ROW
+EXECUTE PROCEDURE check_insert_task();
 
 
 -- Resources for Help
