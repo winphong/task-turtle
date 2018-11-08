@@ -10,7 +10,9 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
             $(document).ready(function() {
-                $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+                if (!checkDateInput()) {
+                    $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+                }
                 $("#category").change(function(){
                     $("#category_hidden").val($("#category").find(":selected").text());
                 });
@@ -25,6 +27,15 @@
                     ?>
                 });
             });
+            function checkDateInput() {
+                var input = document.createElement('input');
+                input.setAttribute('type','date');
+
+                var randomValue = 'random-value-here';
+                input.setAttribute('value', randomValue);
+
+                return (input.value !== randomValue);
+            }
             function validateForm() {
                 $submitForm = true;
                 $('.mandatory').each(function() {
