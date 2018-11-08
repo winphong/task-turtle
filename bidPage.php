@@ -19,7 +19,7 @@
 				echo 'Not connected to server';
 			}
 
-			$taskid = $_POST['taskid'];
+			$taskid = isset($_POST['taskid']) ? $_POST['taskid'] : null;
 
 			if ($taskid == null) {
 				session_start();
