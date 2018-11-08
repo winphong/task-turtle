@@ -1,0 +1,44 @@
+<?php
+    require 'checkLoginStatus.php';
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> TaskTurtle | Home </title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div id="header">
+      <div id="branding"> <!-- contains sitename and logo to align left -->
+        <img id="logo" src="assets/logo.png"></img>
+        <p id="sitename"><a href="loggedInHomepage.html">TaskTurtle</a></p>
+      </div>
+      <ul class="nav" id="topnav">
+        <?php include 'headermenu.php'; ?>
+      </ul>
+    </div> <!-- end header -->
+
+    <main class="flex">
+
+      <div class="searchBar" style="display: inline-block;">
+        
+        <form action="searchResultPage.html" method="post">
+          <input type="text" name="searchWord" placeholder="Search"/>
+          <button> Search </button>
+        </form>
+
+      </div>
+
+      <button style="display: inline-block;" onclick="location.href='createTask.php';">Create new task</button>
+
+      <button style="display: inline-block;" onclick="location.href='assignedTask.php';">Assigned task</button>
+
+      <div class="taskList">
+          <?php
+              include ('searchResult.php');
+          ?>
+      </div>
+    </main>
+  </body>
+</html>

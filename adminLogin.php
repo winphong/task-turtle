@@ -9,18 +9,21 @@
 		echo 'Not connected to server';
 	}
 
+	session_start();
+
 	if (isset($_POST['adminLogin'])) {
 
 		$admin_name = $_POST['adminUsername'];
 		$password = $_POST['adminPassword'];
 
-        $queryStr = "SELECT admin_name FROM admin WHERE admin_name='$admin_name' AND password='$password'";
+        $queryStr = "SELECT * FROM admin WHERE admin_name='$admin_name' AND password='$password'";
 		$adminLogin = dbQuery($con, $queryStr);
 		$result = dbFetchArray($adminLogin);
 
 		if ($result) {
 
 			echo 'Successful';
+			$_SESSION['userinfo'] = $result;
 			header("refresh:1; url = adminLoggedInHomepage.html");
 
 		} else {

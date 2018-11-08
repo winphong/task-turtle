@@ -22,18 +22,29 @@
         $location = $_POST['location'];
         $category = $_POST['category'];
         $post_date = date("Y-m-d");
-        $username = $_SESSION['username'];
+        $username = isset($_POST['creator']) ? $_POST['creator'] : $_SESSION['username'];
 
         $queryStr = "INSERT INTO task(title, description, task_date, start_time, end_time, location, category, post_date, creator) VALUES ('$title', $description, '$task_date', '$start_time', '$end_time', '$location', '$category', '$post_date', '$username')";
         $userCreateTask = dbQuery($con, $queryStr);
 
         if ($userCreateTask) {
             echo "Task created successfully!";
-            header("refresh:1; url = loggedInHomepage.html");
+            
+            if (isset($_POST['creator'])) {
+                
+                header("refresh:0;url = 'adminLoggedInHomepage.html'");
+            
+            } else {
+
+                header("refresh:0; url = 'loggedInHomepage.html'");
+            }
+
         } else {
             echo "Task creation failed.";
-            header("refresh:2; url = createTask.php");
+            header("refresh:0; url = createTask.php");
         }
+
+
     }
 
 ?>

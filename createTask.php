@@ -10,15 +10,32 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
             $(document).ready(function() {
-                $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+                if (!checkDateInput()) {
+                    $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+                }
                 $("#category").change(function(){
                     $("#category_hidden").val($("#category").find(":selected").text());
                 });
                 $("#back").click(function(e) {
                     e.preventDefault();
-                    location.href = 'loggedInHomepage.html';
+                    <?php
+                        if (isset($userinfo['admin_name'])) {
+                            echo "window.location.replace('adminLoggedInHomepage.html')\n";
+                        } else {
+                            echo "window.location.replace('loggedInHomepage.html')\n";
+                        }
+                    ?>
                 });
             });
+            function checkDateInput() {
+                var input = document.createElement('input');
+                input.setAttribute('type','date');
+
+                var randomValue = 'random-value-here';
+                input.setAttribute('value', randomValue);
+
+                return (input.value !== randomValue);
+            }
             function validateForm() {
                 $submitForm = true;
                 $('.mandatory').each(function() {
@@ -33,8 +50,12 @@
         </script>
     </head>
     <body>
+        
         <?php
-            include 'headermenu.php';
+
+            if (!isset($userinfo['admin_name'])) {
+                include 'headermenu.php';
+            }
         ?>
     	<h1> Welcome to Task Turtle </h1>
 
@@ -42,6 +63,16 @@
 
 		<form id="taskForm" action="handleTaskCreation.php" method="post" onsubmit="return validateForm()">
             <table>
+                <?php
+                    if (isset($userinfo['admin_name'])) {
+                        echo "
+                            <tr>
+                                <td>Creator's Username</td>
+                                <td>: <input class='mandatory' type='text' name='creator' size='40' /></td>
+                            </tr>
+                        ";
+                    }
+                ?>
                 <tr>
                     <td>Title</td>
                     <td>: <input class="mandatory" type="text" name="title" size="40"/></td>
@@ -86,8 +117,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td align="right"><button id="back">Back</button><input type="submit" name="create_task" value="Confirm"/></td>
+                    <td>
+                        <td>&nbsp;</td>
+                        <td align="right"><button id="back">Back</button><input type="submit" name="create_task" value="Confirm"/></td>
+                    </td>
                 </tr>
             </table>
         </form>

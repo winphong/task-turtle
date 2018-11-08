@@ -83,6 +83,8 @@
           <input style='padding:2px 7px 2px 7px;margin-left:16.4em;' type='submit' name='submit' value='Change Password' />
         </form>\n";
         }
+
+        echo '<a href="viewProfileSettings.php"><button> Back </button></a>';
         ?>
         </div>
     </body>

@@ -25,19 +25,20 @@
 
         <div class="searchBar" style="display: inline-block;">
           <form action="adminSearchResultPage.html" method="POST">
-            <input type="text" name="search" placeholder="Search"/>
+            <input type="text" name="searchWord" placeholder="Search"/>
             <button> Go! </button>
           </form>
         </div>
         </br>
-        
-        <button style="display: inline-block;" onclick="location.href='adminDisplayAssignedTask.html';">View all assigned</button>
         <button style="display: inline-block;" onclick="location.href='createTask.php';">Create new task</button>
-        
+
+        <button style="display: inline-block;" onclick="location.href='adminDisplayAssignedTask.html';">View all assigned</button>
+
+
         <div class="tables">
 
             <?php
-                include ('adminDisplayTables.php');
+                include ('adminSearchResult.php');
             ?>
 
         </div>

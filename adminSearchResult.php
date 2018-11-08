@@ -4,15 +4,22 @@
     require 'dbqueryfunction.php';
 
 	$con = getDbConnect();
-	
+
 	if (!$con) {
 		echo 'Not connected to server';
 	}
+	
+	date_default_timezone_set("Singapore");
 
-    $queryStr = "SELECT * FROM task ORDER BY taskid";
+	$date = date("Y-m-d");
+
+	$searchWord = $_POST['searchWord'];
+
+    $queryStr = "SELECT t.* FROM task t WHERE (lower(t.title) LIKE lower('%$searchWord%')) ORDER BY post_date DESC";
+
 	$retrieveTask = dbQuery($con, $queryStr);
 
-	echo '<p>Task Table</p>';
+    echo '<p>Task Table</p>';
 
 	echo '<div style="display:table;">
 			<table border="1"><tr><th>taskid</th><th>title</th><th>description</th><th>task_date</th><th>start_time</th><th>end_time</th><th>location</th><th>category</th><th>post_date</th><th>creator</th><th></th><th></th></tr>';

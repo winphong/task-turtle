@@ -21,8 +21,8 @@
   	  <h1 class="welcome"> Welcome to TaskTurtle! </h1>
       <h3 class="tagline"> Login to browse our tasks or create your own! </h3>
     	<ul class="nav" id="signup">
-        <li class="special-button"><a href="/loginPage.html">Log In</a></li>
-        <li class="special-button"><a href="/signupPage.html">Sign Up</a></li>
+        <li class="special-button"><a href="loginPage.html">Log In</a></li>
+        <li class="special-button"><a href="signupPage.html">Sign Up</a></li>
       </ul>
 	   </main>
   </body>
