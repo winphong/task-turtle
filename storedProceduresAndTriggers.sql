@@ -49,7 +49,7 @@ CREATE PROCEDURE check_insert_task(IN task_date DATE, IN task_start_time TIME, I
 BEGIN
     IF (task_date < CURRENT_DATE) OR (task_end_time <= task_start_time) THEN
         SIGNAL SQLSTATE '45002'
-            SET MESSAGE_TEXT = 'Please ensure that your date and timings are valid. Tasks cannot be scheduled before the current date, and the end time must not be earlier than the start time.';
+            SET MESSAGE_TEXT = 'Please ensure that your date and timings are valid.';
     END IF;
 END$$
 
@@ -183,7 +183,7 @@ CREATE FUNCTION check_insert_task()
 RETURNS TRIGGER AS $$
 BEGIN
     IF (NEW.task_date < CURRENT_DATE) OR (NEW.end_time <= NEW.start_time) THEN
-        RAISE NOTICE 'Please ensure that your date and timings are valid. Tasks cannot be scheduled before the current date, and the end time must not be earlier than the start time.';
+        RAISE NOTICE 'Please ensure that your date and timings are valid.';
         RETURN NULL;
     END IF;
     RETURN NEW;
