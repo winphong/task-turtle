@@ -2,14 +2,59 @@
 <html>
 	<head>
 		<title> TaskTurtle | Sign Up </title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    	<link rel="stylesheet" type="text/css" href="styles.css">
+    	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+            function validateForm() {
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var displayName = $("#displayName").val();
+                var submitForm = true;
+
+                if (username === "") {
+                	$("#usernameDialog").text("Username must not be empty.");
+                	$("#usernameDialog").css("display", "inline");
+                	submitForm = false;
+                } else if ((jQuery.trim(username)).length == 0) {
+                	$("#usernameDialog").text("Username cannot be only spaces.");
+                	$("#usernameDialog").css("display", "inline");
+                	submitForm = false;
+                } else {
+                	$("#usernameDialog").hide();
+                }
+                if (password === "") {
+                	$("#passwordDialog").css("display", "inline");
+                	submitForm = false;
+                } else {
+                	$("#passwordDialog").hide();
+                }
+                if (displayName === "") {
+                	$("#displayNameDialog").text("Display name must not be empty.");
+                	$("#displayNameDialog").css("display", "inline");
+                	submitForm = false;
+                } else if ((jQuery.trim(displayName)).length == 0) {
+                	$("#displayNameDialog").text("Display name cannot be only spaces.");
+                	$("#displayNameDialog").css("display", "inline");
+                	submitForm = false;
+                } else {
+                	$("#displayNameDialog").hide();
+                }
+                return submitForm;
+            }
+
+            $(document).ready(function() {
+                $("#username").keydown(function() { $("#usernameDialog").hide(); });
+                $("#password").keydown(function() { $("#passwordDialog").hide(); });
+                $("#displayName").keydown(function() { $("#displayNameDialog").hide(); });
+            });
+        </script>
 	</head>
 
 	<body>
     <div id="header">
       <div id="branding"> <!-- contains sitename and logo to align left -->
-        <img id="logo" src="assets/logo.png"></img>
+        <img id="logo" src="assets/logo.png" />
         <p id="sitename"><a href="homepage.php">TaskTurtle</a></p>
       </div>
       <ul class="nav" id="topnav">
@@ -20,16 +65,16 @@
 
     <main class="flex">
   		<h1> Sign up for a TaskTurtle Account </h1>
-  		<form action="signup.php" method="post">
+  		<form action="signup.php" method="post" onsubmit="return validateForm()">
 
-  			Username: <input type="text" name="username"/>
-  					  </br>
-  			Password: <input type="password" name="password"/>
-  					  </br>
-  			Name: <input type="text" name="name"/>
-  				  </br>
+			Username: <input id="username" type="text" name="username"/><div id="usernameDialog" style="display: none; background-color: #e6ffff; border-radius: 5px; margin-left: 10px; padding: 5px; box-shadow: 3px 3px 2px #f2f2f2;">Username must not be empty.</div>
+  					  <br />
+  			Password: <input id="password" type="password" name="password"/><div id="passwordDialog" style="display: none; background-color: #e6ffff; border-radius: 5px; margin-left: 14px; padding: 5px; box-shadow: 3px 3px 2px #f2f2f2;">Password must not be empty.</div>
+  					  <br />
+  			Name: <input id="displayName" type="text" name="name"/><div id="displayNameDialog" style="display: none; background-color: #e6ffff; border-radius: 5px; margin-left: 43px; padding: 5px; box-shadow: 3px 3px 2px #f2f2f2;">Display name must not be empty.</div>
+  				  <br />
   			User bio: <input type="text" name="userProfile"/>
-  					 	  </br>
+  					 	  <br />
 
   	    <input type="submit" name="signup" value="Sign up now!"/>
   		</form>
