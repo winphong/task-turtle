@@ -34,7 +34,7 @@
 			    echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$assignedTaskArr['title']."</br>"."Description: ".$assignedTaskArr['description']."</br>"."Date: ".$assignedTaskArr['task_date']."</br>"."Start Time: ".$assignedTaskArr['start_time']."</br>"."End Time: ".$assignedTaskArr['end_time']."</br>"."Creator: ".$assignedTaskArr['creator']."</br>"."Status: ".$status.'</div>';
 			    while ($arr = dbFetchArray($retrieveAssignedTask)) {
 			        $status = ($arr['completed'] == "t" || $arr['completed'] == 1) ? "Completed" : "Pending";
-			        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$arr['title']."</br>"."Description: ".$arr['description']."</br>"."Date: ".$arr['task_date']."</br>"."Start Time: ".$assignedTaskArr['start_time']."</br>"."End Time: ".$assignedTaskArr['end_time']."</br>"."Creator: ".$arr['creator']."</br>"."Status: ".$status.'</div>';
+			        echo "</br>".'<div style="border:1px solid; padding:20px; margin-bottom:20px;">'."Task title: ".$arr['title']."</br>"."Description: ".$arr['description']."</br>"."Date: ".$arr['task_date']."</br>"."Start Time: ".$arr['start_time']."</br>"."End Time: ".$arr['end_time']."</br>"."Creator: ".$arr['creator']."</br>"."Status: ".$status.'</div>';
 			    }
 			} else { // If not assigned
 
