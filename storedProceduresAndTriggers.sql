@@ -168,7 +168,7 @@ BEGIN
         FETCH myCursor INTO assigned_task_date, assigned_task_start_time, assigned_task_end_time;
         EXIT WHEN NOT FOUND;
         IF (bid_task_date == assigned_task_date) AND ((bid_task_start_time < assigned_task_end_time AND bid_task_start_time >= assigned_task_start_time) OR (bid_task_start_time < assigned_task_start_time AND bid_task_end_time > assigned_task_start_time)) THEN
-            RAISE NOTICE 'Cannot assign user to task. User\'s schedule clashes with the task you are assigning them to.';
+            RAISE NOTICE 'Cannot assign user to task. User''s schedule clashes with the task you are assigning them to.';
             RETURN NULL;
         END IF;
     END LOOP;
