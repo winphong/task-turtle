@@ -1,3 +1,4 @@
+<?php require 'checkLoginStatus.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +6,7 @@
     </head>
 
     <body>
-    	
+    	<?php include 'template.php'; ?>
     	<h1> Task Turtle </h1>
 
     	<table>
@@ -21,7 +22,6 @@
 					echo 'Not connected to server';
 				}
 
-				session_start();
 				$taskid = $_SESSION['taskid'];
 
 				// Retrive list of bid for the particular task from the bid table
